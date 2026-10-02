@@ -7,189 +7,165 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 20px;
     }
-    
-    .marquee-text {
-      color: #d9534f;
-      font-size: 18px;
+
+    .banner {
+      background-color: #ffebee;
+      color: #d32f2f;
+      text-align: center;
+      padding: 12px;
       font-weight: bold;
-      background: #ffe6e6;
-      padding: 8px;
       border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
     }
 
     .container {
       display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 20px;
+      gap: 20px;
     }
 
-    .list-container, .form-container {
-      background: white;
+    .card {
+      background: #fff;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       flex: 1;
-      min-width: 280px;
     }
 
-    ol#members-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #eee;
+    .card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .member-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .member-item {
       display: flex;
       align-items: center;
-      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
     }
 
-    /* Style for member avatar images */
-    .member-avatar {
+    .member-item:last-child {
+      border-bottom: none;
+    }
+
+    .avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
+      margin-right: 12px;
       border: 1px solid #ccc;
     }
 
     .form-group {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     label {
       display: block;
-      margin-bottom: 5px;
       font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #333;
     }
 
-    input[type="text"], input[type="url"] {
+    input[type="text"] {
       width: 100%;
       padding: 10px;
-      box-sizing: border-box;
       border: 1px solid #ccc;
       border-radius: 4px;
+      box-sizing: border-box;
     }
 
-    button {
+    .btn {
       width: 100%;
-      padding: 10px;
-      background-color: #28a745;
+      background-color: #2e7d32;
       color: white;
+      padding: 12px;
       border: none;
       border-radius: 4px;
-      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.2s;
     }
 
-    button:hover {
-      background-color: #218838;
+    .btn:hover {
+      background-color: #1b5e20;
     }
   </style>
 </head>
 <body>
 
-  <marquee class="marquee-text">Welcome to DUOS(Dicator union of Soviet)</marquee>
+  <div class="banner">
+    Welcome to DUOS(Dicator union of Soviet)
+  </div>
 
   <h1>DUOS Members</h1>
 
   <div class="container">
-    <div class="list-container">
-      <h3>DUOS Members</h3>
-      <ol id="members-list">
-        <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="BIBEK" class="member-avatar">
+    <!-- Left Column: Member List -->
+    <div class="card">
+      <h2>DUOS Members</h2>
+      <ul class="member-list">
+        <!-- New Stalin Entry Added Below -->
+        <li class="member-item">
+          <img class="avatar" src="satlin.jpg" alt="Stalin">
+          <span>Stalin</span>
+        </li>
+        <li class="member-item">
+          <img class="avatar" src="bibek.jpg" alt="BIBEK">
           <span>BIBEK</span>
         </li>
-        <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Abeil" class="member-avatar">
+        <li class="member-item">
+          <img class="avatar" src="abeil.jpg" alt="Abeil">
           <span>Abeil</span>
         </li>
-        <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Prasanna" class="member-avatar">
+        <li class="member-item">
+          <img class="avatar" src="prasanna.jpg" alt="Prasanna">
           <span>Prasanna</span>
         </li>
-        <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Anoyog" class="member-avatar">
+        <li class="member-item">
+          <img class="avatar" src="anoyog.jpg" alt="Anoyog">
           <span>Anoyog</span>
         </li>
-        <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="RN SARU" class="member-avatar">
+        <li class="member-item">
+          <img class="avatar" src="rn_saru.jpg" alt="RN SARU">
           <span>RN SARU</span>
         </li>
-      </ol>
+      </ul>
     </div>
 
-    <div class="form-container">
-      <h3>Add Yourself</h3>
-      <form id="memberForm">
+    <!-- Right Column: Form -->
+    <div class="card">
+      <h2>Add Yourself</h2>
+      <form>
         <div class="form-group">
-          <label for="username">Your Name / Email:</label>
-          <input type="text" id="username" required placeholder="Enter your name or email">
+          <label for="name">Your Name / Email:</label>
+          <input type="text" id="name" placeholder="Enter your name or email">
         </div>
         <div class="form-group">
-          <label for="photoUrl">Photo URL (optional):</label>
-          <input type="url" id="photoUrl" placeholder="https://example.com/photo.jpg">
+          <label for="photo">Photo URL (optional):</label>
+          <input type="text" id="photo" placeholder="https://example.com/photo.jpg">
         </div>
-        <button type="submit">Join List</button>
+        <button type="submit" class="btn">Join List</button>
       </form>
     </div>
   </div>
 
-  <script>
-    document.getElementById('memberForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const userInput = document.getElementById('username').value.trim();
-      const photoInput = document.getElementById('photoUrl').value.trim();
-      const list = document.getElementById('members-list');
-
-      if (!userInput) return;
-
-      // Use photo from input or default to Stalin photo
-      const photoSrc = photoInput || 'https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg';
-
-      // 1. Visually update the on-screen list
-      const newItem = document.createElement('li');
-      
-      const img = document.createElement('img');
-      img.src = photoSrc;
-      img.alt = userInput;
-      img.className = 'member-avatar';
-
-      const nameSpan = document.createElement('span');
-      nameSpan.textContent = userInput;
-
-      newItem.appendChild(img);
-      newItem.appendChild(nameSpan);
-      list.appendChild(newItem);
-
-      // 2. Transmit payload to server endpoint
-      try {
-        const response = await fetch('/api/add-member', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json' 
-          },
-          body: JSON.stringify({ member: userInput, photoUrl: photoSrc })
-        });
-
-        if (response.ok) {
-          console.log('Member successfully saved on server.');
-        } else {
-          console.warn('Server endpoint responded with an error status.');
-        }
-      } catch (error) {
-        console.error('Network request failed:', error);
-      }
-
-      // 3. Clear inputs
-      document.getElementById('username').value = '';
-      document.getElementById('photoUrl').value = '';
-      alert('Welcome, ' + userInput + '! Your name has been added.');
-    });
-  </script>
 </body>
 </html>
