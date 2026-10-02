@@ -100,23 +100,23 @@
       <h3>DUOS Members</h3>
       <ol id="members-list">
         <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="BIBEK" class="member-avatar">
+          <img src="stalin.jpg" alt="BIBEK" class="member-avatar">
           <span>BIBEK</span>
         </li>
         <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Abeil" class="member-avatar">
+          <img src="stalin.jpg" alt="Abeil" class="member-avatar">
           <span>Abeil</span>
         </li>
         <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Prasanna" class="member-avatar">
+          <img src="stalin.jpg" alt="Prasanna" class="member-avatar">
           <span>Prasanna</span>
         </li>
         <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="Anoyog" class="member-avatar">
+          <img src="stalin.jpg" alt="Anoyog" class="member-avatar">
           <span>Anoyog</span>
         </li>
         <li>
-          <img src="https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg" alt="RN SARU" class="member-avatar">
+          <img src="stalin.jpg" alt="RN SARU" class="member-avatar">
           <span>RN SARU</span>
         </li>
       </ol>
@@ -131,7 +131,7 @@
         </div>
         <div class="form-group">
           <label for="photoUrl">Photo URL (optional):</label>
-          <input type="url" id="photoUrl" placeholder="stalin.jpg">
+          <input type="text" id="photoUrl" placeholder="stalin.jpg" value="stalin.jpg">
         </div>
         <button type="submit">Join List</button>
       </form>
@@ -148,8 +148,8 @@
 
       if (!userInput) return;
 
-      // Use photo from input or default to Stalin photo
-      const photoSrc = photoInput || 'https://i.pinimg.com/originals/c9/2a/a8/c92aa82a93ffb2d997bd03b90df78921.jpg';
+      // Use photo from input or default to local stalin.jpg
+      const photoSrc = photoInput || 'stalin.jpg';
 
       // 1. Visually update the on-screen list
       const newItem = document.createElement('li');
@@ -187,7 +187,7 @@
 
       // 3. Clear inputs
       document.getElementById('username').value = '';
-      document.getElementById('photoUrl').value = '';
+      document.getElementById('photoUrl').value = 'stalin.jpg';
       alert('Welcome, ' + userInput + '! Your name has been added.');
     });
   </script>
